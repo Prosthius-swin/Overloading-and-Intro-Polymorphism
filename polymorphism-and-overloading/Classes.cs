@@ -4,14 +4,18 @@ namespace polymorphism_and_overloading
 {
     public abstract class Engine
     {
-        private  int horsePower { get; set; }
-        private int energyStoreMaxSize { get; set; }
-        private int currentEnergyStore { get; set; }
+        private  int horsePower;
+        public int HorsePower { get; set; }
+        private int energyStoreMaxSize;
+        public int EnergyStoreMaxSize { get; set; }
+        private int currentEnergyStore;
+        public int CurrentEnergyStore { get; set; }
 
         public Engine(int pHorsePower, int pEnergyStoreMaxSize)
         {
             this.horsePower = pHorsePower;
             this.energyStoreMaxSize = pEnergyStoreMaxSize;
+            currentEnergyStore = energyStoreMaxSize;
         }
         public Engine (){}
         public void Rev(){}
@@ -26,8 +30,22 @@ namespace polymorphism_and_overloading
         public InternalCombustionEngine(string pFuelType, int pHorsePower, int pEnergyStoreMaxSize):base(pHorsePower, pEnergyStoreMaxSize)
         {
             this.fuelType = pFuelType;
+            CurrentEnergyStore = EnergyStoreMaxSize;
         }
         public InternalCombustionEngine(){}
+
+        public void rev()
+        {
+            if(CurrentEnergyStore == 0)
+            {
+                Console.WriteLine("OUT OF FUEL");
+            } else
+            {
+                Console.WriteLine("VROOOOMMMM!");
+                CurrentEnergyStore--;
+            }
+        }
+        
     }
     public class ElectricEngine:Engine
     {
@@ -36,7 +54,8 @@ namespace polymorphism_and_overloading
         public ElectricEngine(string pBatteryType, int pHorsePower, int pEnergyStoreMaxSize):base(pHorsePower, pEnergyStoreMaxSize)
         {
             this.batteryType = pBatteryType;
+            CurrentEnergyStore = EnergyStoreMaxSize;
         }
-        public ElectricEngine(){}
+        public ElectricEngine(){} 
     }
 }
