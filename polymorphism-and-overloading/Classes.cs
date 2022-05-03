@@ -30,7 +30,8 @@ namespace polymorphism_and_overloading
         public InternalCombustionEngine(string pFuelType, int pHorsePower, int pEnergyStoreMaxSize):base(pHorsePower, pEnergyStoreMaxSize)
         {
             this.fuelType = pFuelType;
-            CurrentEnergyStore = EnergyStoreMaxSize;
+            this.EnergyStoreMaxSize = pEnergyStoreMaxSize;
+            this.CurrentEnergyStore = pEnergyStoreMaxSize;
         }
         public InternalCombustionEngine(){}
 
@@ -45,7 +46,7 @@ namespace polymorphism_and_overloading
                 CurrentEnergyStore--;
             }
         }
-        
+
     }
     public class ElectricEngine:Engine
     {

@@ -6,7 +6,8 @@ namespace polymorphism_and_overloading
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            InternalCombustionEngine ICE1 = new InternalCombustionEngine("Unleaded", 300, 500);
+            ICE1.rev();
         }
     }
 }
