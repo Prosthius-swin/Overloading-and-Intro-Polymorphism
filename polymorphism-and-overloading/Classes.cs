@@ -27,5 +27,16 @@ namespace polymorphism_and_overloading
         {
             this.fuelType = pFuelType;
         }
+        public InternalCombustionEngine(){}
+    }
+    public class ElectricEngine:Engine
+    {
+        public string batteryType { get; set; }
+
+        public ElectricEngine(string pBatteryType, int pHorsePower, int pEnergyStoreMaxSize):base(pHorsePower, pEnergyStoreMaxSize)
+        {
+            this.batteryType = pBatteryType;
+        }
+        public ElectricEngine(){}
     }
 }
