@@ -7,7 +7,8 @@ namespace polymorphism_and_overloading
         static void Main(string[] args)
         {
             InternalCombustionEngine ICE1 = new InternalCombustionEngine("Unleaded", 300, 500);
-            ICE1.rev();
+            ICE1.Rev(500);
+            ICE1.Refuel(500);
         }
     }
 }

@@ -35,7 +35,7 @@ namespace polymorphism_and_overloading
         }
         public InternalCombustionEngine(){}
 
-        public void rev()
+        public void Rev()
         {
             if(CurrentEnergyStore == 0)
             {
@@ -46,7 +46,40 @@ namespace polymorphism_and_overloading
                 CurrentEnergyStore--;
             }
         }
-
+        public void Rev(int n1)
+        {
+            int counter = 0;
+            while(counter < n1)
+            {
+                if(CurrentEnergyStore == 0)
+                {
+                    Console.WriteLine("OUT OF FUEL");
+                } else
+                {
+                    Console.WriteLine("VROOOOMMMM!");
+                    CurrentEnergyStore--;
+                }
+                counter++;
+            }
+        }
+        public void Refuel()
+        {
+            CurrentEnergyStore = EnergyStoreMaxSize;
+            Console.WriteLine("REFUELED TO FULL");
+        }
+        public void Refuel(int n1)
+        {
+            if(!(CurrentEnergyStore + n1 > EnergyStoreMaxSize))
+            {
+                CurrentEnergyStore += n1;
+                Console.WriteLine($"Refuelled {n1} litres");
+            } else
+            {
+                CurrentEnergyStore = EnergyStoreMaxSize;
+                Console.WriteLine("REFUELED TO FULL");
+            }
+            
+        }
     }
     public class ElectricEngine:Engine
     {
